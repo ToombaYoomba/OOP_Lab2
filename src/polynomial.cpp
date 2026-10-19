@@ -73,7 +73,7 @@ double Polynomial::evaluate(double x) const {
 
 void Polynomial::add(const Polynomial& other){
     double* res = (degree >= other.degree) ? new double[degree+1] : new double[other.degree+1];
-    for (int i = 0; i < other.degree+1; i++){
+    for (int i = 0; i < other.degree+1 || i < degree+1; i++){
         double a = (i <= degree) ? coefs[i] : 0.0;
         double b = (i <= other.degree) ? other.coefs[i] : 0.0;
         res[i] = a + b;
